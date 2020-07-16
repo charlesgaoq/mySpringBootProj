@@ -15,6 +15,35 @@
   </properties>
 
   <dependencies>
+  	<dependency>
+  		<groupId>org.mybatis</groupId>
+  		<artifactId>mybatis</artifactId>
+  		<version>3.5.5-SNAPSHOT</version>
+  	</dependency>
+  
+  <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>8.0.20</version>
+      <scope>test</scope>
+    </dependency>
+  
+  <dependency>
+      <groupId>ognl</groupId>
+      <artifactId>ognl</artifactId>
+      <version>3.2.14</version>
+      <scope>compile</scope>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.javassist</groupId>
+      <artifactId>javassist</artifactId>
+      <version>3.27.0-GA</version>
+      <scope>compile</scope>
+      <optional>true</optional>
+    </dependency>
+  
+  
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
