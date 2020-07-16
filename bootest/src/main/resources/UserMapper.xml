@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gao.boot.bootest.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.gao.boot.bootest.User" >
+    <id column="USE_ID" property="useId" jdbcType="INTEGER" />
+    <result column="USE_NAME" property="useName" jdbcType="VARCHAR" />
+    <result column="USE_SEX" property="useSex" jdbcType="VARCHAR" />
+    <result column="USE_AGE" property="useAge" jdbcType="INTEGER" />
+    <result column="USE_ID_NO" property="useIdNo" jdbcType="VARCHAR" />
+    <result column="USE_PHONE_NUM" property="usePhoneNum" jdbcType="VARCHAR" />
+    <result column="USE_EMAIL" property="useEmail" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="DATE" />
+    <result column="MODIFY_TIME" property="modifyTime" jdbcType="DATE" />
+    <result column="USE_STATE" property="useState" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    USE_ID, USE_NAME, USE_SEX, USE_AGE, USE_ID_NO, USE_PHONE_NUM, USE_EMAIL, CREATE_TIME, 
+    MODIFY_TIME, USE_STATE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where USE_ID = #{useId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from user
+    where USE_ID = #{useId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.gao.boot.bootest.User" >
+    insert into user (USE_ID, USE_NAME, USE_SEX, 
+      USE_AGE, USE_ID_NO, USE_PHONE_NUM, 
+      USE_EMAIL, CREATE_TIME, MODIFY_TIME, 
+      USE_STATE)
+    values (#{useId,jdbcType=INTEGER}, #{useName,jdbcType=VARCHAR}, #{useSex,jdbcType=VARCHAR}, 
+      #{useAge,jdbcType=INTEGER}, #{useIdNo,jdbcType=VARCHAR}, #{usePhoneNum,jdbcType=VARCHAR}, 
+      #{useEmail,jdbcType=VARCHAR}, #{createTime,jdbcType=DATE}, #{modifyTime,jdbcType=DATE}, 
+      #{useState,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gao.boot.bootest.User" >
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="useId != null" >
+        USE_ID,
+      </if>
+      <if test="useName != null" >
+        USE_NAME,
+      </if>
+      <if test="useSex != null" >
+        USE_SEX,
+      </if>
+      <if test="useAge != null" >
+        USE_AGE,
+      </if>
+      <if test="useIdNo != null" >
+        USE_ID_NO,
+      </if>
+      <if test="usePhoneNum != null" >
+        USE_PHONE_NUM,
+      </if>
+      <if test="useEmail != null" >
+        USE_EMAIL,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="modifyTime != null" >
+        MODIFY_TIME,
+      </if>
+      <if test="useState != null" >
+        USE_STATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="useId != null" >
+        #{useId,jdbcType=INTEGER},
+      </if>
+      <if test="useName != null" >
+        #{useName,jdbcType=VARCHAR},
+      </if>
+      <if test="useSex != null" >
+        #{useSex,jdbcType=VARCHAR},
+      </if>
+      <if test="useAge != null" >
+        #{useAge,jdbcType=INTEGER},
+      </if>
+      <if test="useIdNo != null" >
+        #{useIdNo,jdbcType=VARCHAR},
+      </if>
+      <if test="usePhoneNum != null" >
+        #{usePhoneNum,jdbcType=VARCHAR},
+      </if>
+      <if test="useEmail != null" >
+        #{useEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=DATE},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=DATE},
+      </if>
+      <if test="useState != null" >
+        #{useState,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.gao.boot.bootest.User" >
+    update user
+    <set >
+      <if test="useName != null" >
+        USE_NAME = #{useName,jdbcType=VARCHAR},
+      </if>
+      <if test="useSex != null" >
+        USE_SEX = #{useSex,jdbcType=VARCHAR},
+      </if>
+      <if test="useAge != null" >
+        USE_AGE = #{useAge,jdbcType=INTEGER},
+      </if>
+      <if test="useIdNo != null" >
+        USE_ID_NO = #{useIdNo,jdbcType=VARCHAR},
+      </if>
+      <if test="usePhoneNum != null" >
+        USE_PHONE_NUM = #{usePhoneNum,jdbcType=VARCHAR},
+      </if>
+      <if test="useEmail != null" >
+        USE_EMAIL = #{useEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=DATE},
+      </if>
+      <if test="modifyTime != null" >
+        MODIFY_TIME = #{modifyTime,jdbcType=DATE},
+      </if>
+      <if test="useState != null" >
+        USE_STATE = #{useState,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where USE_ID = #{useId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.gao.boot.bootest.User" >
+    update user
+    set USE_NAME = #{useName,jdbcType=VARCHAR},
+      USE_SEX = #{useSex,jdbcType=VARCHAR},
+      USE_AGE = #{useAge,jdbcType=INTEGER},
+      USE_ID_NO = #{useIdNo,jdbcType=VARCHAR},
+      USE_PHONE_NUM = #{usePhoneNum,jdbcType=VARCHAR},
+      USE_EMAIL = #{useEmail,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=DATE},
+      MODIFY_TIME = #{modifyTime,jdbcType=DATE},
+      USE_STATE = #{useState,jdbcType=VARCHAR}
+    where USE_ID = #{useId,jdbcType=INTEGER}
+  </update>
+</mapper>
