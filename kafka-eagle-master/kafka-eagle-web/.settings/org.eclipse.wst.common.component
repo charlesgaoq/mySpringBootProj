@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="ke">
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
+        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <dependent-module archiveName="kafka-eagle-common-1.4.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/kafka-eagle-common/kafka-eagle-common">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="kafka-eagle-core-1.4.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/kafka-eagle-core/kafka-eagle-core">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="kafka-eagle-api-1.4.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/kafka-eagle-api/kafka-eagle-api">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="kafka-eagle-plugin-1.4.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/kafka-eagle-plugin/kafka-eagle-plugin">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="context-root" value="ke"/>
+        <property name="java-output-path" value="/kafka-eagle-web/target/classes"/>
+        <property name="component.exclusion.patterns" value="WEB-INF/classes/plugins/**,WEB-INF/classes/kms/**,WEB-INF/classes/conf/**,WEB-INF/classes/bash/**,WEB-INF/classes/assembly.xml"/>
+    </wb-module>
+</project-modules>
