@@ -1,0 +1,7 @@
+com\gao\kafka\KfkaProducer.class
+com\gao\kafka\KafkaTestController.class
+com\gao\kafka\test\AppController.class
+com\gao\kafka\test\APP1.class
+com\gao\kafka\KafkaReceiver.class
+com\gao\kafka\App.class
+com\gao\kafka\Message.class
