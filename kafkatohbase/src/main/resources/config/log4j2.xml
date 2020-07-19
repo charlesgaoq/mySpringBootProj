@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Log4j 2.x 配置文件。每30秒自动检查和应用配置文件的更新； -->
+<Configuration status="info" monitorInterval="1800">
+	<properties>
+		<property name="LOG_HOME">logs</property>
+		<property name="APP_NAME">wisdom-policing-kafka</property>
+	</properties>
+	<Appenders>
+		<!-- 输出到控制台 -->
+		<Console name="console" target="SYSTEM_OUT">
+			<!-- 需要记录的级别 -->
+			<ThresholdFilter level="trace" onMatch="ACCEPT" onMismatch="DENY"/>
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss,SSS}:%4p %t (%F:%L) - %m%n" />
+		</Console>
+		<RollingRandomAccessFile name="debugLog"
+			fileName="${LOG_HOME}/${APP_NAME}-debug.log" filePattern="${LOG_HOME}/${APP_NAME}-debug.%d{yyyy-MM-dd}-%i.log.gz"
+			append="true">
+			<PatternLayout
+				pattern="[%date{yyyy-MM-dd HH:mm:ss.SSS}][%thread][%level][%class][%line]:%message%n" />
+			<Filters>
+				<ThresholdFilter level="info" onMatch="DENY"
+					onMismatch="NEUTRAL" />
+				<ThresholdFilter level="debug" onMatch="ACCEPT"
+					onMismatch="DENY" />
+			</Filters>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"
+					modulate="true" />  <!-- 对应 filePattern维度，此处为天数 -->
+			</Policies>
+			<DefaultRolloverStrategy max="30" /> <!-- 日志自动删除，最大个数 -->
+		</RollingRandomAccessFile>
+
+		<RollingRandomAccessFile name="infoLog"
+			fileName="${LOG_HOME}/${APP_NAME}-info.log" filePattern="${LOG_HOME}/${APP_NAME}-info.%d{yyyy-MM-dd}-%i.log.gz"
+			append="true">
+			<PatternLayout
+				pattern="[%date{yyyy-MM-dd HH:mm:ss.SSS}][%thread][%level][%class][%line]:%message%n" />
+			<Filters>
+				<ThresholdFilter level="warn" onMatch="DENY"
+					onMismatch="NEUTRAL" />
+				<ThresholdFilter level="info" onMatch="ACCEPT"
+					onMismatch="DENY" />
+			</Filters>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"
+					modulate="true" />  <!-- 对应 filePattern维度，此处为天数 -->
+			</Policies>
+			<DefaultRolloverStrategy max="30" /> <!-- 日志自动删除，最大个数 -->
+		</RollingRandomAccessFile>
+
+		<RollingRandomAccessFile name="errorLog"
+			fileName="${LOG_HOME}/${APP_NAME}-error.log" filePattern="${LOG_HOME}/${APP_NAME}-error.%d{yyyy-MM-dd}-%i.log.gz"
+			append="true">
+			<Filters>
+				<ThresholdFilter level="warn" onMatch="ACCEPT"
+					onMismatch="DENY" />
+			</Filters>
+			<PatternLayout
+				pattern="[%date{yyyy-MM-dd HH:mm:ss.SSS}][%thread][%level][%class][%line]:%message%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"
+					modulate="true" />
+			</Policies>
+			<DefaultRolloverStrategy max="30" />
+		</RollingRandomAccessFile>
+	</Appenders>
+	<Loggers>
+		<!-- 
+		<AsyncLogger name="com.eversec" level="info" additivity="true">
+			<AppenderRef ref="debugLog" />
+		</AsyncLogger>
+		 -->
+		<Root level="info"> <!-- 全局配置 -->
+			<AppenderRef ref="console" />
+			<AppenderRef ref="infoLog" />
+			<AppenderRef ref="errorLog" />
+		</Root>
+	</Loggers>
+</Configuration>

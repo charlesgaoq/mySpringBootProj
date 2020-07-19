@@ -1,0 +1,11 @@
+[2019-10-16 11:03:57.954][main][WARN][org.mybatis.spring.mapper.ClassPathMapperScanner][166]:No MyBatis mapper was found in '[com.eversec.kafkatohbase]' package. Please check your configuration.
+[2019-10-16 11:04:04.063][main][WARN][com.netflix.config.sources.URLConfigurationSource][121]:No URLs will be polled as dynamic configuration sources.
+[2019-10-16 11:04:04.081][main][WARN][com.netflix.config.sources.URLConfigurationSource][121]:No URLs will be polled as dynamic configuration sources.
+[2019-10-16 11:04:15.588][main][WARN][org.springframework.cloud.starter.eureka.EurekaStarterDeprecationWarningAutoConfiguration][19]:spring-cloud-starter-eureka is deprecated as of Spring Cloud Netflix 1.4.0, please migrate to spring-cloud-starter-netflix-eureka
+[2019-10-16 11:04:15.594][main][WARN][org.springframework.cloud.starter.eureka.server.EurekaServerStarterDeprecationWarningAutoConfiguration][19]:spring-cloud-starter-eureka-server is deprecated as of Spring Cloud Netflix 1.4.0, please migrate to spring-cloud-starter-netflix-eureka-server
+[2019-10-16 11:11:42.689][main][WARN][org.mybatis.spring.mapper.ClassPathMapperScanner][166]:No MyBatis mapper was found in '[com.eversec.kafkatohbase]' package. Please check your configuration.
+[2019-10-16 11:11:51.645][main][WARN][com.netflix.config.sources.URLConfigurationSource][121]:No URLs will be polled as dynamic configuration sources.
+[2019-10-16 11:11:51.661][main][WARN][com.netflix.config.sources.URLConfigurationSource][121]:No URLs will be polled as dynamic configuration sources.
+[2019-10-16 11:12:02.924][main][WARN][org.springframework.cloud.starter.eureka.EurekaStarterDeprecationWarningAutoConfiguration][19]:spring-cloud-starter-eureka is deprecated as of Spring Cloud Netflix 1.4.0, please migrate to spring-cloud-starter-netflix-eureka
+[2019-10-16 11:12:02.938][main][WARN][org.springframework.cloud.starter.eureka.server.EurekaServerStarterDeprecationWarningAutoConfiguration][19]:spring-cloud-starter-eureka-server is deprecated as of Spring Cloud Netflix 1.4.0, please migrate to spring-cloud-starter-netflix-eureka-server
+[2019-10-16 11:12:11.992][main][WARN][org.springframework.cloud.stream.binder.kafka.provisioning.KafkaTopicProvisioner$2][255]:The number of expected partitions was: 20, but 1 has been found instead.There will be 19 idle consumers
