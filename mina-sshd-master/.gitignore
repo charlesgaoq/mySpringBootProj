@@ -1,0 +1,35 @@
+target/
+Servers/
+.metadata/
+.recommenders/
+.settings/
+RemoteSystemsTempFiles/
+.classpath
+.project
+# Puthon related files
+.pydevproject
+*.pyc
+.checkstyle
+.eclipse-pmd
+.pmd
+*.iml
+*.ipr
+*.iws
+.idea
+.springBeans
+.externalToolBuilders
+
+# Pre-release temporary files
+*.releaseBackup
+release.properties
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Serialized objects
+*.ser
+
+# Locks and temporary files
+*~
+.attach_pid*
