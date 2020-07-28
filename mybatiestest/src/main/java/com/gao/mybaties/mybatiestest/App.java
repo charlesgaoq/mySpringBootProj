@@ -2,6 +2,8 @@ package com.gao.mybaties.mybatiestest;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -32,22 +34,28 @@ public class App
         // 通过会话工厂创建会话
         SqlSession session = factory.openSession();
         
-        UserModelMapper userMapper = session.getMapper(UserModelMapper.class);
+//        UserModelMapper userMapper = session.getMapper(UserModelMapper.class);
 //        UserModel user = new UserModel();
 //        user.setUseAge(18);
 //        user.setUseName("武汉");
 //        user.setUseIdNo("110");
 //        int ii = userMapper.insert(user);
 //        System.out.println(ii);
-        UserModel user = userMapper.selectByPrimaryKey(3);
-        System.out.println(user.getTeacher());
-        System.out.println(user.getUseName());
-//        TeacherMapper teacherMapper = session.getMapper(TeacherMapper.class);
-//        Teacher t = new Teacher();
-//        t.setName("gaoqiang");
-//        teacherMapper.insert(t);
-//        session.commit();
-//        session.close();
+//        UserModel user = userMapper.selectByPrimaryKey(3);
+//        System.out.println(user.getTeacher());
+//        System.out.println(user.getUseName());
+        TeacherMapper teacherMapper = session.getMapper(TeacherMapper.class);
+        List<Teacher> tt = new ArrayList<Teacher>();
+        for(int i = 10; i< 14;i++) {
+	        Teacher t = new Teacher();
+	        t.setName("gaoqiang_" + i);
+	        t.setId(i + 2);
+//	        teacherMapper.insert(t);
+	        tt.add(t);
+        }
+        teacherMapper.batchDelete(tt);
+        session.commit();
+        session.close();
         //UserModel user = userMapper.selectByPrimaryKey(2);
         //System.out.println(user.getUseEmail());
         

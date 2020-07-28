@@ -64,6 +64,15 @@
     and name = #{teacherName,jdbcType=VARCHAR}
   </select>
   
-  
+  <delete id="batchDelete" parameterType="java.util.List">
+  	delete from teacher 
+  	<where>
+  		<if test="null != list and list.size() > 0">
+  			<foreach collection="list" index="index" item="item" separator="or">
+  				(id = #{item.id} and name = #{item.name})
+  			</foreach>
+  		</if>
+  	</where>
+  </delete>
   
 </mapper>
