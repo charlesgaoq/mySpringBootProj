@@ -22,8 +22,19 @@ public class UserModel {
     private Date modifyTime;
 
     private String useState;
+    
+    private Teacher teacher;
+    
 
-    public Integer getUseId() {
+    public Teacher getTeacher() {
+		return teacher;
+	}
+
+	public void setTeacher(Teacher teacher) {
+		this.teacher = teacher;
+	}
+
+	public Integer getUseId() {
         return useId;
     }
 

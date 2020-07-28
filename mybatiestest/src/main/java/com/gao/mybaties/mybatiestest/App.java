@@ -8,7 +8,9 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import com.gao.mybaties.mybatiestest.mapper.TeacherMapper;
 import com.gao.mybaties.mybatiestest.mapper.UserModelMapper;
+import com.gao.mybaties.mybatiestest.model.Teacher;
 import com.gao.mybaties.mybatiestest.model.UserModel;
 
 /**
@@ -31,9 +33,23 @@ public class App
         SqlSession session = factory.openSession();
         
         UserModelMapper userMapper = session.getMapper(UserModelMapper.class);
-        
-        UserModel user = userMapper.selectByPrimaryKey(2);
-        System.out.println(user.getUseEmail());
+//        UserModel user = new UserModel();
+//        user.setUseAge(18);
+//        user.setUseName("武汉");
+//        user.setUseIdNo("110");
+//        int ii = userMapper.insert(user);
+//        System.out.println(ii);
+        UserModel user = userMapper.selectByPrimaryKey(3);
+        System.out.println(user.getTeacher());
+        System.out.println(user.getUseName());
+//        TeacherMapper teacherMapper = session.getMapper(TeacherMapper.class);
+//        Teacher t = new Teacher();
+//        t.setName("gaoqiang");
+//        teacherMapper.insert(t);
+//        session.commit();
+//        session.close();
+        //UserModel user = userMapper.selectByPrimaryKey(2);
+        //System.out.println(user.getUseEmail());
         
     }
 }

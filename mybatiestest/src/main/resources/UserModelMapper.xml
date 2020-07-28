@@ -12,10 +12,11 @@
     <result column="CREATE_TIME" property="createTime" jdbcType="DATE" />
     <result column="MODIFY_TIME" property="modifyTime" jdbcType="DATE" />
     <result column="USE_STATE" property="useState" jdbcType="VARCHAR" />
+    <association  property="teacher" column="{teacherId=teacher_id,teacherName=teacher_name}" select="com.gao.mybaties.mybatiestest.mapper.TeacherMapper.select"/>
   </resultMap>
   <sql id="Base_Column_List" >
     USE_ID, USE_NAME, USE_SEX, USE_AGE, USE_ID_NO, USE_PHONE_NUM, USE_EMAIL, CREATE_TIME, 
-    MODIFY_TIME, USE_STATE
+    MODIFY_TIME, USE_STATE,teacher_id,teacher_name
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
