@@ -28,7 +28,7 @@ public class MyTask implements Runnable {
 	public void run() {
 		// TODO Auto-generated method stub
 		System.out.println(name);
-		User user = userMapper.selectByPrimaryKey(1);
+		User user = userMapper.selectByPrimaryKey(6);
 		System.out.println(user.getUseName());
 	}
 
